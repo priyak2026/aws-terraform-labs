@@ -1,0 +1,276 @@
+
+root in ~ on ☁️  (us-east-1) 
+❯ ls
+README.md  terraform-projects
+
+root in ~ 
+❯ cd terraform-projects
+
+root in ~/terraform-projects 
+❯ ls
+IAM
+
+root in ~/terraform-projects 
+❯ cd IAM
+
+root in ~/terraform-projects/IAM 
+❯ ls
+
+root in ~/terraform-projects/IAM 
+❯ nano iam-user.tf
+
+root in ~/terraform-projects/IAM via 💠 default took 16s 
+❯ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding latest version of hashicorp/aws...
+- Installing hashicorp/aws v6.30.0...
+- Installed hashicorp/aws v6.30.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+root in ~/terraform-projects/IAM via 💠 default took 9s 
+❯ terraform plan
+
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: Invalid provider configuration
+│ 
+│ Provider "registry.terraform.io/hashicorp/aws" requires explicit configuration.
+│ Add a provider block to the root module and configure the provider's required
+│ arguments as described in the provider documentation.
+│ 
+╵
+╷
+│ Error: invalid AWS Region: 
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on <empty> line 0:
+│   (source code not available)
+│ 
+╵
+
+root in ~/terraform-projects/IAM via 💠 default took 15s 
+❯ nano provider.tf
+
+root in ~/terraform-projects/IAM via 💠 default took 10s 
+❯ terraform plan
+
+Planning failed. Terraform encountered an error while generating this plan.
+
+╷
+│ Error: Retrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 19a0dc8e-60cf-4189-9e4c-ff25af71cb0e, api error InvalidClientTokenId: The security token included in the request is invalid.
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on provider.tf line 1, in provider "aws":
+│    1: provider "aws" {
+│ 
+╵
+
+root in ~/terraform-projects/IAM via 💠 default took 14s 
+❯ terraform plan
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_iam_user.users will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "mary"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/IAM via 💠 default took 24s 
+❯ terraform apply
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_iam_user.users will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "mary"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_iam_user.users: Creating...
+aws_iam_user.users: Creation complete after 1s [id=mary]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+root in ~/terraform-projects/IAM via 💠 default took 43s 
+❯ cd ..
+
+root in ~/terraform-projects 
+❯ ls
+IAM
+
+root in ~/terraform-projects 
+❯ cd IAM
+
+root in ~/terraform-projects/IAM via 💠 default 
+❯ ls
+iam-user.tf  provider.tf  terraform.tfstate  variables.tf
+
+root in ~/terraform-projects/IAM via 💠 default 
+❯ cat variables.tf
+variable "project-sapphire-users" {
+     type = list(string)
+     default = [ "mary", "jack", "jill", "mack", "buzz", "mater"]
+}
+root in ~/terraform-projects/IAM via 💠 default 
+❯ cd ..
+
+root in ~/terraform-projects 
+❯ ls
+IAM
+
+root in ~/terraform-projects 
+❯ cd IAM
+
+root in ~/terraform-projects/IAM via 💠 default 
+❯ ls
+iam-user.tf  provider.tf  terraform.tfstate  variables.tf
+
+root in ~/terraform-projects/IAM via 💠 default 
+❯ nano iam-user.tf
+
+root in ~/terraform-projects/IAM via 💠 default took 1m34s 
+❯ terraform apply
+aws_iam_user.users[0]: Refreshing state... [id=mary]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_iam_user.users has moved to aws_iam_user.users[0]
+    resource "aws_iam_user" "users" {
+        id            = "mary"
+        name          = "mary"
+        tags          = {}
+        # (5 unchanged attributes hidden)
+    }
+
+  # aws_iam_user.users[1] will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "jack"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+  # aws_iam_user.users[2] will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "jill"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+  # aws_iam_user.users[3] will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "mack"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+  # aws_iam_user.users[4] will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "buzz"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+  # aws_iam_user.users[5] will be created
+  + resource "aws_iam_user" "users" {
+      + arn           = (known after apply)
+      + force_destroy = false
+      + id            = (known after apply)
+      + name          = "mater"
+      + path          = "/"
+      + tags_all      = (known after apply)
+      + unique_id     = (known after apply)
+    }
+
+Plan: 5 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_iam_user.users[2]: Creating...
+aws_iam_user.users[4]: Creating...
+aws_iam_user.users[1]: Creating...
+aws_iam_user.users[3]: Creating...
+aws_iam_user.users[5]: Creating...
+aws_iam_user.users[2]: Creation complete after 0s [id=jill]
+aws_iam_user.users[4]: Creation complete after 0s [id=buzz]
+aws_iam_user.users[5]: Creation complete after 0s [id=mater]
+aws_iam_user.users[1]: Creation complete after 0s [id=jack]
+aws_iam_user.users[3]: Creation complete after 0s [id=mack]
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+

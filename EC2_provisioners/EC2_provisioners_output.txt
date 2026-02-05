@@ -1,0 +1,750 @@
+
+root in ~ on ☁️  (us-east-1) 
+❯ ls
+README.md  terraform-projects
+
+root in ~ on ☁️  (us-east-1) 
+❯ cd terraform-projects
+
+root in ~/terraform-projects on ☁️  (us-east-1) 
+❯ ls
+project-cerberus
+
+root in ~/terraform-projects on ☁️  (us-east-1) 
+❯ cd project-cerberus
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) 
+❯ ls
+install-nginx.sh  main.tf  provider.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) 
+❯ cat main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 15s 
+❯ terraform init
+
+Initializing the backend...
+
+Initializing provider plugins...
+- Finding hashicorp/aws versions matching "4.15.0"...
+- Installing hashicorp/aws v4.15.0...
+terra- Installed hashicorp/aws v4.15.0 (signed by HashiCorp)
+
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ terraform plan
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus will be created
+  + resource "aws_instance" "cerberus" {
+      + ami                                  = "ami-06178cf087598769c"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "m5.large"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = (known after apply)
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags_all                             = (known after apply)
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 5s 
+❯ terraform apply
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus will be created
+  + resource "aws_instance" "cerberus" {
+      + ami                                  = "ami-06178cf087598769c"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = (known after apply)
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "m5.large"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = (known after apply)
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = (known after apply)
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = true
+      + subnet_id                            = (known after apply)
+      + tags_all                             = (known after apply)
+      + tenancy                              = (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.cerberus: Creating...
+aws_instance.cerberus: Still creating... [10s elapsed]
+aws_instance.cerberus: Creation complete after 10s [id=i-001848b404d3776db]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 15s 
+❯ terraform show
+# aws_instance.cerberus:
+resource "aws_instance" "cerberus" {
+    ami                                  = "ami-06178cf087598769c"
+    arn                                  = "arn:aws:ec2:eu-west-2::instance/i-001848b404d3776db"
+    associate_public_ip_address          = true
+    availability_zone                    = "eu-west-2a"
+    disable_api_termination              = false
+    ebs_optimized                        = false
+    get_password_data                    = false
+    hibernation                          = false
+    id                                   = "i-001848b404d3776db"
+    instance_initiated_shutdown_behavior = "stop"
+    instance_state                       = "running"
+    instance_type                        = "m5.large"
+    ipv6_address_count                   = 0
+    ipv6_addresses                       = []
+    monitoring                           = false
+    primary_network_interface_id         = "eni-d48b643c"
+    private_dns                          = "ip-10-5-218-101.eu-west-2.compute.internal"
+    private_ip                           = "10.5.218.101"
+    public_dns                           = "ec2-54-214-225-22.eu-west-2.compute.amazonaws.com"
+    public_ip                            = "54.214.225.22"
+    secondary_private_ips                = []
+    security_groups                      = []
+    source_dest_check                    = true
+    subnet_id                            = "subnet-a87939c3"
+    tags_all                             = {}
+    tenancy                              = "default"
+    user_data_replace_on_change          = false
+    vpc_security_group_ids               = []
+
+    root_block_device {
+        delete_on_termination = true
+        device_name           = "/dev/sda1"
+        encrypted             = false
+        iops                  = 0
+        tags                  = {}
+        throughput            = 0
+        volume_id             = "vol-9f8a6d0b"
+        volume_size           = 8
+        volume_type           = "gp2"
+    }
+}
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 2s 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 35s 
+❯ terraform plan
+aws_instance.cerberus: Refreshing state... [id=i-001848b404d3776db]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_key_pair.cerberus-key will be created
+  + resource "aws_key_pair" "cerberus-key" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "cerberus"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNLIIwLZS/Ssaarh0zD22QVrYKq85K1H351ffrmkAP672NN2yPZNe9e5EH29czXYpMWqP86InIgpPJoFmVMpcn9i3CUI1zXbF4K5jV4HLnm/hNPLl+1p9WWQD9PCdi5Bl3Chp/VA4MlDc4pZarBqroNmxvA2mdd0HEB3VqbZVzy30cIpJk2CRLwxA4OOg94Bxb+wuL+IWhGK7rr6l6cwGXclaAslamkr1THfegExQz9SXo33f4VbMIWrfcYf+drOZvrL9Gp+gksV+0yjguWiH4zZqEtf5wg/aL2VGQd/yVQsSCHDg3ivEw6Cu8k3ZuD7unTuEswpj0o3UNKCKZCqQF root@iac-server"
+      + tags_all        = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ terraform apply
+aws_instance.cerberus: Refreshing state... [id=i-001848b404d3776db]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_key_pair.cerberus-key will be created
+  + resource "aws_key_pair" "cerberus-key" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "cerberus"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNLIIwLZS/Ssaarh0zD22QVrYKq85K1H351ffrmkAP672NN2yPZNe9e5EH29czXYpMWqP86InIgpPJoFmVMpcn9i3CUI1zXbF4K5jV4HLnm/hNPLl+1p9WWQD9PCdi5Bl3Chp/VA4MlDc4pZarBqroNmxvA2mdd0HEB3VqbZVzy30cIpJk2CRLwxA4OOg94Bxb+wuL+IWhGK7rr6l6cwGXclaAslamkr1THfegExQz9SXo33f4VbMIWrfcYf+drOZvrL9Gp+gksV+0yjguWiH4zZqEtf5wg/aL2VGQd/yVQsSCHDg3ivEw6Cu8k3ZuD7unTuEswpj0o3UNKCKZCqQF root@iac-server"
+      + tags_all        = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_key_pair.cerberus-key: Creating...
+aws_key_pair.cerberus-key: Creation complete after 0s [id=cerberus]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 6s 
+❯ ls
+install-nginx.sh  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 1m7s 
+❯ terraform plan
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-001848b404d3776db]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus must be replaced
+-/+ resource "aws_instance" "cerberus" {
+      ~ arn                                  = "arn:aws:ec2:eu-west-2::instance/i-001848b404d3776db" -> (known after apply)
+      ~ associate_public_ip_address          = true -> (known after apply)
+      ~ availability_zone                    = "eu-west-2a" -> (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      ~ disable_api_termination              = false -> (known after apply)
+      ~ ebs_optimized                        = false -> (known after apply)
+      - hibernation                          = false -> null
+      + host_id                              = (known after apply)
+      ~ id                                   = "i-001848b404d3776db" -> (known after apply)
+      ~ instance_initiated_shutdown_behavior = "stop" -> (known after apply)
+      ~ instance_state                       = "running" -> (known after apply)
+      ~ ipv6_address_count                   = 0 -> (known after apply)
+      ~ ipv6_addresses                       = [] -> (known after apply)
+      + key_name                             = "cerberus" # forces replacement
+      ~ monitoring                           = false -> (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      ~ primary_network_interface_id         = "eni-d48b643c" -> (known after apply)
+      ~ private_dns                          = "ip-10-5-218-101.eu-west-2.compute.internal" -> (known after apply)
+      ~ private_ip                           = "10.5.218.101" -> (known after apply)
+      ~ public_dns                           = "ec2-54-214-225-22.eu-west-2.compute.amazonaws.com" -> (known after apply)
+      ~ public_ip                            = "54.214.225.22" -> (known after apply)
+      ~ secondary_private_ips                = [] -> (known after apply)
+      ~ security_groups                      = [] -> (known after apply)
+      ~ subnet_id                            = "subnet-a87939c3" -> (known after apply)
+      - tags                                 = {} -> null
+      ~ tags_all                             = {} -> (known after apply)
+      ~ tenancy                              = "default" -> (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      ~ vpc_security_group_ids               = [] -> (known after apply)
+        # (5 unchanged attributes hidden)
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/sda1" -> null
+          - encrypted             = false -> null
+          - iops                  = 0 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-9f8a6d0b" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ terraform apply
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-001848b404d3776db]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus must be replaced
+-/+ resource "aws_instance" "cerberus" {
+      ~ arn                                  = "arn:aws:ec2:eu-west-2::instance/i-001848b404d3776db" -> (known after apply)
+      ~ associate_public_ip_address          = true -> (known after apply)
+      ~ availability_zone                    = "eu-west-2a" -> (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      ~ disable_api_termination              = false -> (known after apply)
+      ~ ebs_optimized                        = false -> (known after apply)
+      - hibernation                          = false -> null
+      + host_id                              = (known after apply)
+      ~ id                                   = "i-001848b404d3776db" -> (known after apply)
+      ~ instance_initiated_shutdown_behavior = "stop" -> (known after apply)
+      ~ instance_state                       = "running" -> (known after apply)
+      ~ ipv6_address_count                   = 0 -> (known after apply)
+      ~ ipv6_addresses                       = [] -> (known after apply)
+      + key_name                             = "cerberus" # forces replacement
+      ~ monitoring                           = false -> (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      ~ primary_network_interface_id         = "eni-d48b643c" -> (known after apply)
+      ~ private_dns                          = "ip-10-5-218-101.eu-west-2.compute.internal" -> (known after apply)
+      ~ private_ip                           = "10.5.218.101" -> (known after apply)
+      ~ public_dns                           = "ec2-54-214-225-22.eu-west-2.compute.amazonaws.com" -> (known after apply)
+      ~ public_ip                            = "54.214.225.22" -> (known after apply)
+      ~ secondary_private_ips                = [] -> (known after apply)
+      ~ security_groups                      = [] -> (known after apply)
+      ~ subnet_id                            = "subnet-a87939c3" -> (known after apply)
+      - tags                                 = {} -> null
+      ~ tags_all                             = {} -> (known after apply)
+      ~ tenancy                              = "default" -> (known after apply)
+      + user_data                            = (known after apply)
+      + user_data_base64                     = (known after apply)
+      ~ vpc_security_group_ids               = [] -> (known after apply)
+        # (5 unchanged attributes hidden)
+
+      - root_block_device {
+          - delete_on_termination = true -> null
+          - device_name           = "/dev/sda1" -> null
+          - encrypted             = false -> null
+          - iops                  = 0 -> null
+          - tags                  = {} -> null
+          - throughput            = 0 -> null
+          - volume_id             = "vol-9f8a6d0b" -> null
+          - volume_size           = 8 -> null
+          - volume_type           = "gp2" -> null
+        }
+    }
+
+Plan: 1 to add, 0 to change, 1 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.cerberus: Destroying... [id=i-001848b404d3776db]
+aws_instance.cerberus: Still destroying... [id=i-001848b404d3776db, 10s elapsed]
+aws_instance.cerberus: Destruction complete after 10s
+aws_instance.cerberus: Creating...
+aws_instance.cerberus: Still creating... [10s elapsed]
+aws_instance.cerberus: Creation complete after 10s [id=i-39eaf75f0bbcee318]
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 26s 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 2m10s 
+❯ terraform plan
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-39eaf75f0bbcee318]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus will be updated in-place
+  ~ resource "aws_instance" "cerberus" {
+        id                                   = "i-39eaf75f0bbcee318"
+        tags                                 = {}
+      + user_data                            = "ace853dfcd5deb36a3802184e0347bf471f627ed"
+        # (28 unchanged attributes hidden)
+
+        # (1 unchanged block hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ terraform apply
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-39eaf75f0bbcee318]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_instance.cerberus will be updated in-place
+  ~ resource "aws_instance" "cerberus" {
+        id                                   = "i-39eaf75f0bbcee318"
+        tags                                 = {}
+      + user_data                            = "ace853dfcd5deb36a3802184e0347bf471f627ed"
+        # (28 unchanged attributes hidden)
+
+        # (1 unchanged block hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_instance.cerberus: Modifying... [id=i-39eaf75f0bbcee318]
+aws_instance.cerberus: Still modifying... [id=i-39eaf75f0bbcee318, 10s elapsed]
+aws_instance.cerberus: Still modifying... [id=i-39eaf75f0bbcee318, 20s elapsed]
+aws_instance.cerberus: Modifications complete after 20s [id=i-39eaf75f0bbcee318]
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 26s 
+❯ terraform apply
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-39eaf75f0bbcee318]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found
+no differences, so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ terraform show
+# aws_instance.cerberus:
+resource "aws_instance" "cerberus" {
+    ami                                  = "ami-06178cf087598769c"
+    arn                                  = "arn:aws:ec2:eu-west-2::instance/i-39eaf75f0bbcee318"
+    associate_public_ip_address          = true
+    availability_zone                    = "eu-west-2a"
+    disable_api_termination              = false
+    ebs_optimized                        = false
+    get_password_data                    = false
+    hibernation                          = false
+    id                                   = "i-39eaf75f0bbcee318"
+    instance_initiated_shutdown_behavior = "stop"
+    instance_state                       = "running"
+    instance_type                        = "m5.large"
+    ipv6_address_count                   = 0
+    ipv6_addresses                       = []
+    key_name                             = "cerberus"
+    monitoring                           = false
+    primary_network_interface_id         = "eni-53ebd133"
+    private_dns                          = "ip-10-160-224-127.eu-west-2.compute.internal"
+    private_ip                           = "10.160.224.127"
+    public_dns                           = "ec2-54-214-108-123.eu-west-2.compute.amazonaws.com"
+    public_ip                            = "54.214.108.123"
+    secondary_private_ips                = []
+    security_groups                      = []
+    source_dest_check                    = true
+    subnet_id                            = "subnet-a87939c3"
+    tags                                 = {}
+    tags_all                             = {}
+    tenancy                              = "default"
+    user_data                            = "ace853dfcd5deb36a3802184e0347bf471f627ed"
+    user_data_replace_on_change          = false
+    vpc_security_group_ids               = []
+
+    root_block_device {
+        delete_on_termination = true
+        device_name           = "/dev/sda1"
+        encrypted             = false
+        iops                  = 0
+        tags                  = {}
+        throughput            = 0
+        volume_id             = "vol-15104b2a"
+        volume_size           = 8
+        volume_type           = "gp2"
+    }
+}
+
+# aws_key_pair.cerberus-key:
+resource "aws_key_pair" "cerberus-key" {
+    arn         = "arn:aws:ec2:eu-west-2::key-pair/cerberus"
+    fingerprint = "bc:47:6f:5a:e4:a1:b7:27:16:53:83:6a:20:f2:e3:37"
+    id          = "cerberus"
+    key_name    = "cerberus"
+    key_pair_id = "key-9a66bdfd"
+    public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNLIIwLZS/Ssaarh0zD22QVrYKq85K1H351ffrmkAP672NN2yPZNe9e5EH29czXYpMWqP86InIgpPJoFmVMpcn9i3CUI1zXbF4K5jV4HLnm/hNPLl+1p9WWQD9PCdi5Bl3Chp/VA4MlDc4pZarBqroNmxvA2mdd0HEB3VqbZVzy30cIpJk2CRLwxA4OOg94Bxb+wuL+IWhGK7rr6l6cwGXclaAslamkr1THfegExQz9SXo33f4VbMIWrfcYf+drOZvrL9Gp+gksV+0yjguWiH4zZqEtf5wg/aL2VGQd/yVQsSCHDg3ivEw6Cu8k3ZuD7unTuEswpj0o3UNKCKZCqQF root@iac-server"
+    tags        = {}
+    tags_all    = {}
+}
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 2s 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 2m38s 
+❯ nano main.tf
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 1m8s 
+❯ terraform plan
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-39eaf75f0bbcee318]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_eip.eip will be created
+  + resource "aws_eip" "eip" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = (known after apply)
+      + id                   = (known after apply)
+      + instance             = "i-39eaf75f0bbcee318"
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags_all             = (known after apply)
+      + vpc                  = true
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+────────────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't guarantee
+to take exactly these actions if you run "terraform apply" now.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 3s 
+❯ nano main.tf
+
+❯ terraform apply
+aws_key_pair.cerberus-key: Refreshing state... [id=cerberus]
+aws_instance.cerberus: Refreshing state... [id=i-39eaf75f0bbcee318]
+
+Terraform used the selected providers to generate the following execution plan.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_eip.eip will be created
+  + resource "aws_eip" "eip" {
+      + allocation_id        = (known after apply)
+      + association_id       = (known after apply)
+      + carrier_ip           = (known after apply)
+      + customer_owned_ip    = (known after apply)
+      + domain               = (known after apply)
+      + id                   = (known after apply)
+      + instance             = "i-39eaf75f0bbcee318"
+      + network_border_group = (known after apply)
+      + network_interface    = (known after apply)
+      + private_dns          = (known after apply)
+      + private_ip           = (known after apply)
+      + public_dns           = (known after apply)
+      + public_ip            = (known after apply)
+      + public_ipv4_pool     = (known after apply)
+      + tags_all             = (known after apply)
+      + vpc                  = true
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_eip.eip: Creating...
+aws_eip.eip: Provisioning with 'local-exec'...
+aws_eip.eip (local-exec): Executing: ["/bin/sh" "-c" "echo ec2-127-205-132-134.eu-west-2.compute.amazonaws.com >> /root/cerberus_public_dns.txt"]
+aws_eip.eip: Creation complete after 0s [id=eipalloc-a5cce8bd]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 9s 
+❯ terraform show
+# aws_eip.eip:
+resource "aws_eip" "eip" {
+    allocation_id     = "eipalloc-a5cce8bd"
+    association_id    = "eipassoc-42d9496c"
+    domain            = "vpc"
+    id                = "eipalloc-a5cce8bd"
+    instance          = "i-39eaf75f0bbcee318"
+    network_interface = "eni-53ebd133"
+    private_dns       = "ip-10-160-224-127.eu-west-2.compute.internal"
+    private_ip        = "10.160.224.127"
+    public_dns        = "ec2-127-205-132-134.eu-west-2.compute.amazonaws.com"
+    public_ip         = "127.205.132.134"
+    tags_all          = {}
+    vpc               = true
+}
+
+# aws_instance.cerberus:
+resource "aws_instance" "cerberus" {
+    ami                                  = "ami-06178cf087598769c"
+    arn                                  = "arn:aws:ec2:eu-west-2::instance/i-39eaf75f0bbcee318"
+    associate_public_ip_address          = true
+    availability_zone                    = "eu-west-2a"
+    disable_api_termination              = false
+    ebs_optimized                        = false
+    get_password_data                    = false
+    hibernation                          = false
+    id                                   = "i-39eaf75f0bbcee318"
+    instance_initiated_shutdown_behavior = "stop"
+    instance_state                       = "running"
+    instance_type                        = "m5.large"
+    ipv6_address_count                   = 0
+    ipv6_addresses                       = []
+    key_name                             = "cerberus"
+    monitoring                           = false
+    primary_network_interface_id         = "eni-53ebd133"
+    private_dns                          = "ip-10-160-224-127.eu-west-2.compute.internal"
+    private_ip                           = "10.160.224.127"
+    public_dns                           = "ec2-54-214-108-123.eu-west-2.compute.amazonaws.com"
+    public_ip                            = "54.214.108.123"
+    secondary_private_ips                = []
+    security_groups                      = []
+    source_dest_check                    = true
+    subnet_id                            = "subnet-a87939c3"
+    tags                                 = {}
+    tags_all                             = {}
+    tenancy                              = "default"
+    user_data                            = "ace853dfcd5deb36a3802184e0347bf471f627ed"
+    user_data_replace_on_change          = false
+    vpc_security_group_ids               = []
+
+    root_block_device {
+        delete_on_termination = true
+        device_name           = "/dev/sda1"
+        encrypted             = false
+        iops                  = 0
+        tags                  = {}
+        throughput            = 0
+        volume_id             = "vol-15104b2a"
+        volume_size           = 8
+        volume_type           = "gp2"
+    }
+}
+
+# aws_key_pair.cerberus-key:
+resource "aws_key_pair" "cerberus-key" {
+    arn         = "arn:aws:ec2:eu-west-2::key-pair/cerberus"
+    fingerprint = "bc:47:6f:5a:e4:a1:b7:27:16:53:83:6a:20:f2:e3:37"
+    id          = "cerberus"
+    key_name    = "cerberus"
+    key_pair_id = "key-9a66bdfd"
+    public_key  = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNLIIwLZS/Ssaarh0zD22QVrYKq85K1H351ffrmkAP672NN2yPZNe9e5EH29czXYpMWqP86InIgpPJoFmVMpcn9i3CUI1zXbF4K5jV4HLnm/hNPLl+1p9WWQD9PCdi5Bl3Chp/VA4MlDc4pZarBqroNmxvA2mdd0HEB3VqbZVzy30cIpJk2CRLwxA4OOg94Bxb+wuL+IWhGK7rr6l6cwGXclaAslamkr1THfegExQz9SXo33f4VbMIWrfcYf+drOZvrL9Gp+gksV+0yjguWiH4zZqEtf5wg/aL2VGQd/yVQsSCHDg3ivEw6Cu8k3ZuD7unTuEswpj0o3UNKCKZCqQF root@iac-server"
+    tags        = {}
+    tags_all    = {}
+}
+
+root in ~/terraform-projects/project-cerberus via 💠 default on ☁️  (us-east-1) took 2s 
+❯ 

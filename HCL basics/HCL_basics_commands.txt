@@ -1,0 +1,19 @@
+1  ls
+    2  cd terraform-projects
+    3  ls
+    4  cd HCL
+    5  ls
+    6  cat main.tf
+    7  terraform init
+    8  terraform plan
+    9  nano main.tf
+   10  terraform plan
+   11  terraform apply
+   12  ls
+   13  nano main.tf
+   14  terraform plan
+   15  terraform apply
+   16  terraform destroy
+   17  ls
+   18  cat main.tf
+   19  history
